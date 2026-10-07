@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp">
+
+    <TextClock
+        android:id="@+id/heure"
+        style="@style/GrandChiffre"
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:layout_marginTop="20dp" />
+
+    <TextClock
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:format12Hour="@string/format_date"
+        android:format24Hour="@string/format_date"
+        android:gravity="center"
+        android:textColor="@color/texte2"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Titre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/heures_du_monde" />
+
+        <Button
+            android:id="@+id/ajouter_ville"
+            style="@style/Bouton.Secondaire"
+            android:text="@string/ajouter" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/villes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:divider="@color/trait"
+        android:dividerHeight="1dp" />
+
+    <TextView
+        android:id="@+id/villes_vide"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="24dp"
+        android:text="@string/villes_vide"
+        android:textColor="@color/texte2"
+        android:textSize="15sp" />
+</LinearLayout>

@@ -63,6 +63,12 @@ public class FormatTest {
     }
 
     @Test
+    public void jourCourt() {
+        assertEquals("lun.", Format.jourCourt(java.time.DayOfWeek.MONDAY));
+        assertEquals("dim.", Format.jourCourt(java.time.DayOfWeek.SUNDAY));
+    }
+
+    @Test
     public void dansCombien() {
         assertEquals("dans moins d'une minute", Format.dansCombien(0));
         assertEquals("dans moins d'une minute", Format.dansCombien(59_000));

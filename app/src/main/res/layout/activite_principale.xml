@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/racine"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fond"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/contenu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/trait" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/surface"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/onglet_horloge"
+            style="@style/Onglet"
+            android:drawableTop="@drawable/ic_onglet_horloge"
+            android:text="@string/onglet_horloge" />
+
+        <TextView
+            android:id="@+id/onglet_reveil"
+            style="@style/Onglet"
+            android:drawableTop="@drawable/ic_onglet_reveil"
+            android:text="@string/onglet_reveil" />
+
+        <TextView
+            android:id="@+id/onglet_minuteur"
+            style="@style/Onglet"
+            android:drawableTop="@drawable/ic_onglet_minuteur"
+            android:text="@string/onglet_minuteur" />
+
+        <TextView
+            android:id="@+id/onglet_chrono"
+            style="@style/Onglet"
+            android:drawableTop="@drawable/ic_onglet_chrono"
+            android:text="@string/onglet_chrono" />
+    </LinearLayout>
+</LinearLayout>

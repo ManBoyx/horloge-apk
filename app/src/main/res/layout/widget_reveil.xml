@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_racine"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fond_widget"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextClock
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:autoSizeMaxTextSize="96sp"
+        android:autoSizeMinTextSize="14sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="sans-serif-light"
+        android:format12Hour="h:mm"
+        android:format24Hour="HH:mm"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/widget_texte" />
+
+    <TextClock
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:format12Hour="@string/format_date"
+        android:format24Hour="@string/format_date"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/widget_texte2"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/widget_prochain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/aucun_reveil"
+        android:textColor="@color/widget_accent"
+        android:textSize="13sp" />
+</LinearLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:id="@+id/reglage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <NumberPicker
+                android:id="@+id/choix_heures"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/heures_court"
+                android:textColor="@color/texte2"
+                android:textSize="16sp" />
+
+            <NumberPicker
+                android:id="@+id/choix_minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/minutes_court"
+                android:textColor="@color/texte2"
+                android:textSize="16sp" />
+
+            <NumberPicker
+                android:id="@+id/choix_secondes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/secondes_court"
+                android:textColor="@color/texte2"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/demarrer"
+            style="@style/Bouton"
+            android:layout_marginTop="28dp"
+            android:minWidth="180dp"
+            android:text="@string/demarrer" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/decompte"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/reste"
+            style="@style/GrandChiffre"
+            android:layout_width="match_parent"
+            android:layout_height="120dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/annuler"
+                style="@style/Bouton.Secondaire"
+                android:layout_marginEnd="16dp"
+                android:minWidth="128dp"
+                android:text="@string/annuler" />
+
+            <Button
+                android:id="@+id/pause"
+                style="@style/Bouton"
+                android:minWidth="128dp"
+                android:text="@string/pause" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

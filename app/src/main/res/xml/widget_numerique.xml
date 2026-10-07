@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- updatePeriodMillis = 0 : l'appli n'est jamais réveillée pour ce widget. -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:description="@string/widget_numerique"
+    android:initialLayout="@layout/widget_numerique"
+    android:minWidth="110dp"
+    android:minHeight="40dp"
+    android:previewLayout="@layout/widget_numerique"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellWidth="2"
+    android:targetCellHeight="1"
+    android:updatePeriodMillis="0"
+    android:widgetCategory="home_screen"
+    tools:targetApi="s" />

@@ -71,6 +71,11 @@ public final class Format {
         return sortie.toString();
     }
 
+    /** Jour abrégé : « lun. », « mar. »… */
+    public static String jourCourt(java.time.DayOfWeek jour) {
+        return JOURS[jour.getValue() - 1];
+    }
+
     /** « Aujourd'hui », « Demain », sinon le jour abrégé. */
     public static String jourRelatif(LocalDate cible, LocalDate aujourdhui) {
         long ecart = ChronoUnit.DAYS.between(aujourdhui, cible);
@@ -80,7 +85,7 @@ public final class Format {
         if (ecart == 1) {
             return "Demain";
         }
-        return JOURS[cible.getDayOfWeek().getValue() - 1];
+        return jourCourt(cible.getDayOfWeek());
     }
 
     /** Délai avant une sonnerie, pour le message de confirmation. */
