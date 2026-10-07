@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="300dp"
+    android:viewportWidth="300"
+    android:viewportHeight="300">
+    <path
+        android:fillColor="#FF14181D"
+        android:pathData="M150,150m-146,0a146,146 0 1,0 292,0a146,146 0 1,0 -292,0" />
+    <!-- Repères de 12 h, 3 h, 6 h et 9 h. -->
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:pathData="M150,18v22M150,260v22M18,150h22M260,150h22" />
+    <!-- Repères des autres heures. -->
+    <path
+        android:strokeColor="#FFB8C2CC"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M216,35.7l-7,12.1M264.3,84l-12.1,7M264.3,216l-12.1,-7M216,264.3l-7,-12.1M84,264.3l7,-12.1M35.7,216l12.1,-7M35.7,84l12.1,7M84,35.7l7,12.1" />
+</vector>

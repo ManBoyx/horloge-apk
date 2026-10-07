@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Noir pur : sur un écran OLED, un pixel noir est un pixel éteint. -->
+    <color name="fond">#000000</color>
+    <color name="surface">#111417</color>
+    <color name="texte">#F2F4F6</color>
+    <color name="texte2">#9AA4AF</color>
+    <color name="trait">#23282E</color>
+    <color name="accent">#5CD6C0</color>
+    <color name="accent_appui">#3FB5A0</color>
+    <color name="sur_accent">#00201A</color>
+    <color name="alerte_fond">#3A2E10</color>
+    <color name="alerte_texte">#FFD98A</color>
+</resources>

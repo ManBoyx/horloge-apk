@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Horloge</string>
+
+    <string name="onglet_horloge">Horloge</string>
+    <string name="onglet_reveil">Réveil</string>
+    <string name="onglet_minuteur">Minuteur</string>
+    <string name="onglet_chrono">Chrono</string>
+
+    <string name="heures_du_monde">Heures du monde</string>
+    <string name="ajouter">Ajouter</string>
+    <string name="villes_vide">Aucune ville. Touchez « Ajouter » pour suivre l\'heure ailleurs.</string>
+    <string name="rechercher_ville">Rechercher une ville</string>
+    <string name="format_date">EEEE d MMMM</string>
+
+    <string name="ajouter_reveil">Ajouter un réveil</string>
+    <string name="alarmes_vide">Aucun réveil.</string>
+    <string name="nom_facultatif">Nom (facultatif)</string>
+    <string name="vibreur">Vibreur</string>
+    <string name="actif">Réveil actif</string>
+
+    <string name="heures_court">h</string>
+    <string name="minutes_court">min</string>
+    <string name="secondes_court">s</string>
+    <string name="demarrer">Démarrer</string>
+    <string name="pause">Pause</string>
+    <string name="annuler">Annuler</string>
+    <string name="temps_zero">00:00,0</string>
+
+    <string name="arreter">Arrêter</string>
+    <string name="repeter">Répéter dans 10 min</string>
+
+    <string name="widget_numerique">Horloge numérique</string>
+    <string name="widget_date">Horloge et date</string>
+    <string name="widget_analogique">Horloge analogique</string>
+    <string name="widget_reveil">Horloge et prochain réveil</string>
+    <string name="aucun_reveil">Aucun réveil</string>
+</resources>

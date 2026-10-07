@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fond">#F3F5F7</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="texte">#14181D</color>
+    <color name="texte2">#5C6773</color>
+    <color name="trait">#DCE1E6</color>
+    <color name="accent">#0B7A6B</color>
+    <color name="accent_appui">#075C50</color>
+    <color name="sur_accent">#FFFFFF</color>
+    <color name="alerte_fond">#FFF1CF</color>
+    <color name="alerte_texte">#614400</color>
+    <color name="icone_fond">#0B7A6B</color>
+    <!-- Android 8.0 ne sait pas assombrir les boutons de navigation : barre noire. -->
+    <color name="barre_navigation">#000000</color>
+    <!-- Les widgets gardent le même aspect quel que soit le thème. -->
+    <color name="widget_fond">#14181D</color>
+    <color name="widget_texte">#FFFFFF</color>
+    <color name="widget_texte2">#B8C2CC</color>
+    <color name="widget_accent">#5CD6C0</color>
+</resources>
