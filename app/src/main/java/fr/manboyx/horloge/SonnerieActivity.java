@@ -1,5 +1,6 @@
 package fr.manboyx.horloge;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -50,6 +51,9 @@ public class SonnerieActivity extends Activity {
         finish();
     }
 
+    // Le drapeau RECEIVER_NOT_EXPORTED n'existe qu'à partir d'Android 13 ;
+    // avant, l'enregistrement simple est la seule forme disponible.
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     @Override
     protected void onStart() {
         super.onStart();

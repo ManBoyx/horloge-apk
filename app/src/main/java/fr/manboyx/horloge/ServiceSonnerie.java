@@ -8,6 +8,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ServiceInfo;
+import android.content.res.AssetFileDescriptor;
 import android.graphics.drawable.Icon;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
@@ -124,7 +125,9 @@ public class ServiceSonnerie extends Service {
             return;
         }
 
-        jouer();
+        if (lecteur == null) {
+            jouer(false);
+        }
         if (intent.getBooleanExtra(EXTRA_VIBREUR, true)) {
             vibrer();
         }
@@ -222,31 +225,47 @@ public class ServiceSonnerie extends Service {
         return null;
     }
 
-    private void jouer() {
-        if (lecteur != null) {
-            return;
-        }
-        Uri son = sonAlarme();
-        if (son == null) {
-            return;
-        }
+    /**
+     * Joue en boucle le son d'alarme du téléphone. S'il est absent ou
+     * illisible (aucun son choisi, téléphone pas encore déverrouillé après un
+     * démarrage), le bip intégré à l'appli prend le relais.
+     */
+    private void jouer(final boolean secours) {
+        libererLecteur();
         MediaPlayer nouveau = new MediaPlayer();
         try {
             nouveau.setAudioAttributes(attributsAlarme());
-            nouveau.setDataSource(this, son);
+            Uri son = secours ? null : sonAlarme();
+            if (son != null) {
+                nouveau.setDataSource(this, son);
+            } else {
+                try (AssetFileDescriptor bip = getResources().openRawResourceFd(R.raw.bip)) {
+                    nouveau.setDataSource(bip.getFileDescriptor(), bip.getStartOffset(), bip.getLength());
+                }
+            }
             nouveau.setLooping(true);
             // Garde le processeur éveillé tant que le son joue, écran éteint compris.
             nouveau.setWakeMode(this, PowerManager.PARTIAL_WAKE_LOCK);
             nouveau.setOnPreparedListener(MediaPlayer::start);
             nouveau.setOnErrorListener((l, quoi, detail) -> {
-                libererLecteur();
+                if (!secours) {
+                    principal.post(() -> {
+                        // Entre-temps, la sonnerie a pu être arrêtée.
+                        if (titreEnCours != null) {
+                            jouer(true);
+                        }
+                    });
+                }
                 return true;
             });
             nouveau.prepareAsync();
             lecteur = nouveau;
         } catch (Exception e) {
-            // Son illisible : il reste le vibreur et la notification.
             nouveau.release();
+            if (!secours) {
+                jouer(true);
+            }
+            // Si même le bip échoue, il reste le vibreur et la notification.
         }
     }
 

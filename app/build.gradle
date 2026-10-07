@@ -49,6 +49,19 @@ android {
         checkReleaseBuilds false
     }
 
+    testOptions {
+        unitTests {
+            // Les tests d'écran lisent les vraies mises en page.
+            includeAndroidResources = true
+            all {
+                maxHeapSize = '900m'
+                // ./gradlew testDebugUnitTest -Dcaptures.dir=/un/dossier écrit des
+                // images des écrans (voir CapturesTest).
+                systemProperty 'captures.dir', System.getProperty('captures.dir') ?: ''
+            }
+        }
+    }
+
     // Bloc destiné au Play Store, inutile pour un APK installé à la main.
     dependenciesInfo {
         includeInApk false
@@ -58,5 +71,7 @@ android {
 
 dependencies {
     // Tests seulement : rien de ceci n'entre dans l'APK.
-    testImplementation 'junit:junit:4.10'
+    testImplementation 'junit:junit:4.13.2'
+    // Simulateur Android pour vérifier les écrans et les widgets sans téléphone.
+    testImplementation 'org.robolectric:robolectric:4.16.1'
 }

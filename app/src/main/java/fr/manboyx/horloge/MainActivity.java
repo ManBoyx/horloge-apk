@@ -2,6 +2,7 @@ package fr.manboyx.horloge;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -94,16 +95,16 @@ public class MainActivity extends Activity {
         super.onStop();
     }
 
-    /** Vrai si les notifications sont autorisées (toujours avant Android 13). */
+    /** Vrai si les notifications de l'appli sont actives. */
     boolean notificationsAutorisees() {
-        return Build.VERSION.SDK_INT < 33
-                || checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
-                == PackageManager.PERMISSION_GRANTED;
+        return getSystemService(NotificationManager.class).areNotificationsEnabled();
     }
 
-    /** Demande l'autorisation des notifications si elle manque. */
+    /** Demande l'autorisation des notifications si elle manque (Android 13 et plus). */
     void demanderNotifications() {
-        if (Build.VERSION.SDK_INT >= 33 && !notificationsAutorisees()) {
+        if (Build.VERSION.SDK_INT >= 33
+                && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[] {Manifest.permission.POST_NOTIFICATIONS},
                     DEMANDE_NOTIFICATIONS);
         }

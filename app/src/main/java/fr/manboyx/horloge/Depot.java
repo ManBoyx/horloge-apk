@@ -31,7 +31,12 @@ final class Depot {
 
     Depot(Context contexte) {
         this.contexte = contexte.getApplicationContext();
-        this.prefs = this.contexte.getSharedPreferences("horloge", Context.MODE_PRIVATE);
+        // Stockage « protégé par l'appareil » : lisible dès le démarrage du
+        // téléphone, avant le premier déverrouillage, pour que les alarmes
+        // sonnent même après un redémarrage nocturne. Il ne contient que des
+        // heures d'alarme et des réglages d'affichage.
+        this.prefs = this.contexte.createDeviceProtectedStorageContext()
+                .getSharedPreferences("horloge", Context.MODE_PRIVATE);
     }
 
     // Une valeur du mauvais type (mémoire abîmée) est traitée comme absente.

@@ -23,13 +23,18 @@ public final class Widgets {
 
     /** Met à jour le texte du widget « prochain réveil », s'il est posé. */
     static void rafraichirReveil(Context contexte) {
-        AppWidgetManager gestionnaire = AppWidgetManager.getInstance(contexte);
-        if (gestionnaire == null) {
-            return;
-        }
-        int[] ids = gestionnaire.getAppWidgetIds(new ComponentName(contexte, AvecReveil.class));
-        if (ids.length > 0) {
-            dessiner(contexte, gestionnaire, ids, R.layout.widget_reveil);
+        try {
+            AppWidgetManager gestionnaire = AppWidgetManager.getInstance(contexte);
+            if (gestionnaire == null) {
+                return;
+            }
+            int[] ids = gestionnaire.getAppWidgetIds(new ComponentName(contexte, AvecReveil.class));
+            if (ids.length > 0) {
+                dessiner(contexte, gestionnaire, ids, R.layout.widget_reveil);
+            }
+        } catch (RuntimeException e) {
+            // Service des widgets indisponible (téléphone pas encore déverrouillé
+            // après un démarrage) : le widget sera redessiné au déverrouillage.
         }
     }
 
